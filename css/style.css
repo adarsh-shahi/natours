@@ -27,6 +27,10 @@ body {
 	background-size: cover;
 	/* if we change image size the top of img will remain fixed */
 	background-position: top;
+
+  /* 
+   * 1. Clip Path
+  */
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   position: relative;
 }
@@ -52,6 +56,9 @@ body {
 .heading-primary{
   color: #fff;
   text-transform: uppercase;
+
+  /* resolve shaking while transition */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main{
@@ -59,6 +66,16 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+
+  /* waits for animation to begin */
+  /* animation-delay: 3s; */
+
+  /* times animation will happen */
+  /* animation-iteration-count: 3; */
+
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub{
@@ -66,4 +83,38 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+}
+
+@keyframes moveInLeft{
+  0%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  80%{
+    transform: translateX(10%);
+  }
+
+  100%{
+    /* opacity: 1; */
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight{
+  0%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  80%{
+    transform: translateX(-10%);
+  }
+
+  100%{
+    /* opacity: 1; */
+    transform: translateX(0);
+  }
 }
