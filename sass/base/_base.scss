@@ -1,0 +1,18 @@
+/* this * gets inherited to each element */
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	/* Normally padding and border width and height are added to the 
+  element to avoid this we use border-box  */
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body{
+  box-sizing: border-box;
+}
